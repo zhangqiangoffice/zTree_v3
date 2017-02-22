@@ -57,6 +57,7 @@
             }
         },
         //default setting of core
+        //默认配置在这里
         _setting = {
             treeId: "",
             treeObj: null,
@@ -884,6 +885,7 @@
             }
         },
         //method of operate ztree dom
+        //跟页面视图有关的函数
         view = {
             addNodes: function (setting, parentNode, index, newNodes, isSilent) {
                 if (setting.data.keep.leaf && parentNode && !parentNode.isParent) {
@@ -1640,6 +1642,7 @@
             }
         };
     // zTree defind
+    //这里一共有三个函数，其中init()方法是入口
     $.fn.zTree = {
         consts: _consts,
         _z: {
