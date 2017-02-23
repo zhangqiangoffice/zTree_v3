@@ -599,6 +599,7 @@
                     _init.nodes[i].apply(this, arguments);
                 }
             },
+            //初始化的时候调用了一次，嵌套较深
             initRoot: function (setting) {
                 for (var i = 0, j = _init.roots.length; i < j; i++) {
                     _init.roots[i].apply(this, arguments);
@@ -1664,12 +1665,17 @@
                 }
             }
         },
+        //初始化的入口
         init: function (obj, zSetting, zNodes) {
             var setting = tools.clone(_setting);
+            //合并Setting
             $.extend(true, setting, zSetting);
+            //obj为存放zTree的jQuery对象
             setting.treeId = obj.attr("id");
             setting.treeObj = obj;
+            //.empty()清空子元素
             setting.treeObj.empty();
+            //settiings原本是空对象{},此处是用来存储
             settings[setting.treeId] = setting;
             //For some older browser,(e.g., ie6)
             if (typeof document.body.style.maxHeight === "undefined") {
